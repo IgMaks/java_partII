@@ -65,6 +65,7 @@ public class Main {
         System.out.println("Удадение элементв и вывод массива");
         removeElementList(strList, "Honor");
         System.out.println(strList);
+        /
     }
 
 }
