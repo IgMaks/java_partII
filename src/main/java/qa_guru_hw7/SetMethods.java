@@ -1,24 +1,45 @@
 package qa_guru_hw7;
 
-import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class SetMethods {
-    private static Set<String> carsSet;
+    HashSet<String> cars = new HashSet<>();
 
-    public static void addElement(Set<String> carsSet, String nameElement) {
-
-        carsSet.add(nameElement);
+    public void add(String str) {
+        cars.add(str);
     }
 
-    public static String getElement(Set<String> carsSet, String nameElement) {
-        for (String element:carsSet) {
-            if (element.equals(nameElement)) return element;
+    public void showAllElement() {
+        Iterator<String> i = cars.iterator();
+        while (i.hasNext())
+            System.out.println("В салоне " + i.next());
+    }
+
+    public void removeCars(String str) {
+        cars.remove(str);
+        System.out.println("Остались" + cars);
+    }
+
+    public void checkCarsRemove(String str) {
+        if (cars.contains(str) == false) {
+            System.out.println("Vesta Продана" + cars);
+        } else {
+            System.out.println("Продается" + cars);
         }
-        return "Элемент отсутсвует";
     }
 
-    public static void removeElement(Set<String> carsSet, String nameElement) {
-        carsSet.remove(nameElement);
+
+    public void clearCars() {
+        cars.clear();
+    }
+
+    public void checkCloseDiler() {
+        if (cars.isEmpty() == true) {
+            System.out.println("Салон закрыт");
+        } else {
+            System.out.println("Еще кое что есть");
+        }
     }
 
 }

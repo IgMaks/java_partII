@@ -1,70 +1,79 @@
 package qa_guru_hw7;
 
-import java.util.*;
-import static qa_guru_hw7.LinkedListMethods.*;
-import static qa_guru_hw7.ListMethods.*;
-import static qa_guru_hw7.MapMethods.*;
-import static qa_guru_hw7.SetMethods.*;
-
 public class Main {
     public static void main(String[] args) {
         // создадим список
-        LinkedList<Object> linkedList = new LinkedList<>();
-        System.out.println("Добавляем в список");
-        addElementInLinkedList(linkedList, "Apple");
-        addElementInLinkedList(linkedList, "Samsung");
-        addElementInLinkedList(linkedList, "Nokia");
-        System.out.println(linkedList);
-        System.out.println("********");
-        System.out.println("Поиск элемента в массиве");
-        System.out.println(getElementLinkedList(linkedList, "Apple"));
-        System.out.println("********");
-        System.out.println("Удадение элементв и вывод массива");
-        removeElementLinkedList(linkedList,"Samsung");
-        System.out.println(linkedList);
+        System.out.println("Список телефонов");
+        LinkedListMethods linkedListMethods = new LinkedListMethods();
+        linkedListMethods.addPhoneList("Apple");
+        linkedListMethods.addPhoneList("Samsung");
+        linkedListMethods.addLastPhoneList("Nokia");
+        linkedListMethods.addPhoneList("Alcatel");
+        linkedListMethods.seeFirstPhoneByList();
+        linkedListMethods.seeLastPhoneByList();
+        linkedListMethods.modelPhone();
+        linkedListMethods.addPhoneIndex(4, "Pixel");
+        linkedListMethods.volumePhone("Pixel");
+        linkedListMethods.removePhone("Alcatel");
+        linkedListMethods.modelPhone();
+        linkedListMethods.clearList();
+        linkedListMethods.phoneIsEmpty();
+        boolean phoneList = linkedListMethods.phoneIsEmpty();
+        linkedListMethods.checkClearList(phoneList);
         System.out.println("------------------------");
 
         // создаем set
-        HashSet<String> carsSet = new HashSet<>();
-        addElement(carsSet, "BMW");
-        addElement(carsSet, "Lada");
-        System.out.println("Добвалено в список set" + carsSet);
-        System.out.println("********");
-        System.out.println("Результат поиска: " + getElement( carsSet, "BMW"));
-        System.out.println("Результат поиска: " + getElement( carsSet, "Porshe"));
-        System.out.println("********");
-        removeElement(carsSet, "BMW");
-        System.out.println("В списке только " + carsSet);
+
+        SetMethods cars = new SetMethods();
+        cars.add("BMW x3");
+        cars.add("Lada Vesta");
+        cars.add("logan");
+        cars.showAllElement();
+        cars.removeCars("Lada Vesta");
+        cars.checkCarsRemove("lada Vesta");
+        cars.showAllElement();
+        cars.clearCars();
+        cars.checkCloseDiler();
         System.out.println("------------------------");
         System.out.println("   ");
+
         // создаем map
-        HashMap<Object, Object> stringMap = new HashMap<>();
-        System.out.println("Добавляем в список map");
-        addElementInMap(stringMap, "Apple", "XR");
-        addElementInMap(stringMap, "Samsung", "s5");
-        System.out.println(stringMap);
-        System.out.println("Поиск элемента в массиве");
-        System.out.println(getEntry(stringMap, "Apple"));
-        System.out.println(getEntry(stringMap,"Nokia"));
-        System.out.println("Удадение элементв и вывод массива");
-        removeElementByKey(stringMap, "Samsung");
-        System.out.println(stringMap);
+        MapMethods phoneModel = new MapMethods();
+        System.out.println("Отчет склада магазина сотовой связи");
+        phoneModel.addModelPhone("iPhone", 12);
+        phoneModel.addModelPhone("Samsung", 5);
+        phoneModel.addModelPhone("Nokia", 3310);
+        phoneModel.printAllModelPhone();
+        phoneModel.getModelPhone("iPhone");
+        phoneModel.salePhone("iPhone");
+        phoneModel.printAllModelPhone();
+        phoneModel.clearList();
+        phoneModel.phoneIsEmpty();
         System.out.println("------------------------");
         System.out.println("   ");
+
         // создаем List
-        ArrayList<String> strList = new ArrayList<String>();
-        System.out.println("Добавляем в список List");
-        strList = new ArrayList<String>();
-        addElementList(strList, "Apple");
-        addElementList(strList, "Honor");
-        addElementList(strList, "Pixel");
-        System.out.println(strList);
-        System.out.println("Поиск элемента в массиве");
-        System.out.println("Результат поиска: " + getElementList(strList, "Pixel"));
-        System.out.println("Результат поиска: " + getElementList(strList, "Pixel1"));
-        System.out.println("Удадение элементв и вывод массива");
-        removeElementList(strList, "Honor");
-        System.out.println(strList);
+        ListMethods phone = new ListMethods();
+        System.out.println("Добавляем в список телефоны");
+        phone.addElementList("Apple");
+        phone.addElementList("Honor");
+        phone.addElementList("Pixel");
+        phone.checkAddedPhone();
+        phone.addPhoneByIndex(2, "OPPO");
+        System.out.println("Новый элемент: " + phone.findPhoneByIndex(2));
+        phone.checkAddedPhone();
+        System.out.println("Поиск индекса по наименованию " + phone.seeIndexNewPhone("OPPO"));
+        String phoneIsRemove = phone.getPhone(1);
+        phone.removePhone(phoneIsRemove);
+        phone.checkRemove(phoneIsRemove);
+        phone.changeTitlePhone("MiZU", 1);
+        phone.checkTitleChange(1);
+        phone.checkAddedPhone();
+        phone.clear();
+        boolean phoneWatched = phone.phoneIsEmpty();
+        phone.checkClearArray(phoneWatched);
+
+
     }
 
 }
